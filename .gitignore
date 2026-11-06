@@ -1,0 +1,7 @@
+# Build outputs and temporary files
+*.tmp
+*.log
+*.pdb
+check_*.ps1
+test_*.ps1
+*_running.exe
