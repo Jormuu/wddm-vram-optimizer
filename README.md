@@ -60,3 +60,14 @@ Get the latest pre-compiled binary:
 | **★ Recommended** | `128 MiB` | `32 MiB` | `75%` (`~24 GB`) | **`+608 MiB`** | Gaming + Local AI Workloads |
 | **⚡ Aggressive** | `32 MiB` | `32 MiB` | `80%` (`~25.6 GB`) | **`+704 MiB`** | Maximum Local LLM inference headroom |
 | **↺ Stock Defaults** | Stock Ceiling | Stock Ceiling | `50%` (`~16 GB`) | Baseline (`0 MiB`) | Reverting to stock Windows settings |
+
+---
+
+## 📄 License & Attribution
+
+This project is licensed under the **[MIT License](LICENSE)**.
+
+* **You are free to:**
+  * View, copy, fork, modify, merge, publish, distribute, sublicense, and use the source code for any personal or commercial project.
+* **Condition (Attribution Required):**
+  * You **must include** the original copyright notice and credit to **HASSAN ALHRBI ([@Jormuu](https://github.com/Jormuu))** in all copies or substantial portions of the software.
