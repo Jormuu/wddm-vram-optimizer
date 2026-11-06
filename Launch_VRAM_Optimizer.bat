@@ -8,10 +8,15 @@ if %errorlevel% neq 0 (
 )
 
 cd /d "%~dp0"
-if exist "VRAMOptimizer.exe" (
-    echo Launching VRAMOptimizer.exe...
-    start "" "VRAMOptimizer.exe"
-) else (
-    echo Launching VRAMOptimizer.ps1...
-    powershell.exe -NoProfile -ExecutionPolicy Bypass -STA -File "VRAMOptimizer.ps1"
+if not exist "VRAMOptimizer.exe" (
+    echo VRAMOptimizer.exe not found. Building it from Program.cs...
+    call build.cmd
+    if not exist "VRAMOptimizer.exe" (
+        echo Build failed. See the errors above.
+        pause
+        exit /b 1
+    )
 )
+
+echo Launching VRAMOptimizer.exe...
+start "" "VRAMOptimizer.exe"

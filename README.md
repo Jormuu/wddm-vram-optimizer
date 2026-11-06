@@ -17,6 +17,16 @@ Get the latest pre-compiled binary:
 
 *(Embedded UAC administrator manifest prompts for elevation automatically. Zero installation required).*
 
+### Build from Source
+
+`Program.cs` is the single source of truth. To compile it yourself (uses the C# compiler built into Windows' .NET Framework 4.8, so nothing to install):
+
+```bat
+build.cmd
+```
+
+`Launch_VRAM_Optimizer.bat` also builds the `.exe` automatically if it is missing.
+
 ---
 
 ## Key Highlights
