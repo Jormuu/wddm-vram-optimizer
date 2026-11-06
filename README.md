@@ -1,17 +1,21 @@
 # Windows WDDM & VRAM Optimizer (`VRAMOptimizer.exe`)
 
+[![GitHub Release](https://img.shields.io/github/v/release/Jormuu/wddm-vram-optimizer?color=38BDF8&label=Latest%20Release)](https://github.com/Jormuu/wddm-vram-optimizer/releases/latest)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Platform: Windows 10 / 11](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011-0078D6.svg)](https://github.com/Jormuu/wddm-vram-optimizer)
+
 A standalone, single-file, zero-dependency native Windows 64-bit executable (`.exe`) to configure reverse-engineered **WDDM (`dxgmms2.sys`)** memory management settings, monitor live VRAM budgets, and benchmark real allocatable video memory and shared system RAM over PCIe.
 
 100% vendor-neutral: works identically across **NVIDIA GeForce**, **AMD Radeon**, and **Intel Arc** GPUs.
 
 ---
 
-## Direct Launch
+## 📥 Download Executable
 
-Just double-click:
-👉 **[`VRAMOptimizer.exe`](file:///C:/Users/HASSAN/.gemini/antigravity/scratch/vram-optimizer/VRAMOptimizer.exe)**
+Get the latest pre-compiled binary:
+👉 **[Download `VRAMOptimizer.exe` (v1.0.0)](https://github.com/Jormuu/wddm-vram-optimizer/releases/download/v1.0.0/VRAMOptimizer.exe)**
 
-*(Embedded UAC administrator manifest prompts for elevation automatically).*
+*(Embedded UAC administrator manifest prompts for elevation automatically. Zero installation required).*
 
 ---
 
