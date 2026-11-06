@@ -13,19 +13,19 @@ A standalone, single-file, zero-dependency native Windows 64-bit executable (`.e
 ## 📥 Download Executable
 
 Get the latest pre-compiled binary:
-👉 **[Download `VRAMOptimizer.exe` (v1.0.0)](https://github.com/Jormuu/wddm-vram-optimizer/releases/download/v1.0.0/VRAMOptimizer.exe)**
+👉 **[Download `VRAMOptimizer.exe` (v1.1.0)](https://github.com/Jormuu/wddm-vram-optimizer/releases/download/v1.1.0/VRAMOptimizer.exe)**
 
 *(Embedded UAC administrator manifest prompts for elevation automatically. Zero installation required).*
 
 ### Build from Source
 
-`Program.cs` is the single source of truth. To compile it yourself (uses the C# compiler built into Windows' .NET Framework 4.8, so nothing to install):
+`Program.cs` is the single source of truth. To compile it yourself (uses the native C# compiler built into Windows' .NET Framework 4.8, so nothing external to install):
 
 ```bat
 build.cmd
 ```
 
-`Launch_VRAM_Optimizer.bat` also builds the `.exe` automatically if it is missing.
+`Launch_VRAM_Optimizer.bat` also compiles the `.exe` automatically if it is missing.
 
 ---
 
@@ -47,19 +47,32 @@ build.cmd
 
 ---
 
-### 3. Automatic Two-Phase Memory Benchmark (Reflected 1:1 in Task Manager)
+### 3. Automatic Two-Phase Memory Benchmark with Live Driver Telemetry
 * **Zero Manual Sizing Required:** Automatically queries the selected GPU adapter's physical bounds (Dedicated VRAM + Shared System RAM aperture limit).
 * **Two-Phase Hardware Allocation:**
   * **Phase 1 (Dedicated GDDR6 Saturation):** Allocates `D3D11_USAGE_DEFAULT` resident GPU blocks to saturate physical onboard VRAM up to 100% capacity.
   * **Phase 2 (True PCIe Shared GPU RAM Allocation):** Seamlessly shifts to `D3D11_USAGE_STAGING` buffers pinned in the GPU's PCIe aperture (`DXGI_MEMORY_SEGMENT_GROUP_NON_LOCAL`). Windows Task Manager actively tracks this memory directly on the GPU's "Shared GPU memory" performance graph!
-* **Instant Stop (`■ Stop`):** Allows stopping the benchmark at any time, instantly releasing all resident resources.
+* **Genuine Hardware Driver Telemetry:** Queries real-time hardware residency metrics directly from `QueryVideoMemoryInfo` during execution.
+* **Resilient COM Lifecycle:** Protected by strict `try/finally` blocks ensuring zero COM buffer leaks, memory reclamation upon halting, and clean UI state recovery even if aborted.
+* **Instant Stop (`■ Stop` or `Esc`):** Allows stopping the benchmark at any time, immediately releasing all allocated memory.
 
 ---
 
-### 4. Theme & Accessibility
+### 4. Safe Registry Backup & 1-Click Restore
+* **Automatic Initial Snapshot:** On first launch, the optimizer automatically exports an untampered initial state snapshot to `Backups/Initial_Registry_Backup.reg`.
+* **Export `.reg` Backup:** One-click button (`💾 Export .reg Backup`) to export your current configuration into standard Windows Registry format (`.reg`).
+* **Restore from `.reg`:** One-click button (`📂 Restore from .reg`) to load and apply any saved backup file with instant GUI refresh.
+
+---
+
+### 5. High-DPI & Modern Desktop Ergonomics
+* **PerMonitorV2 High-DPI Manifest:** Crisp, native rendering without font blur on 4K, 1440p, and high-DPI laptop displays.
+* **Windows 10 & 11 Explicit Compatibility:** Native OS identity manifest prevents compatibility throttling.
 * **Dark Mode & Light Mode:** Toggleable theme with custom-styled, high-contrast controls.
-* **Dropdown Visibility:** Custom `ComboBoxItem` templates guarantee crisp, readable text across both Dark and Light themes.
-* **Vendor Agnostic:** S0 sleep controls and NVIDIA-only registry paths have been removed in favor of clean, universal WDDM 2.x/3.x tuning that applies identically to AMD, Intel, and NVIDIA hardware.
+* **Keyboard Shortcuts:**
+  * <kbd>F5</kbd> — Refresh live hardware and registry state.
+  * <kbd>Ctrl</kbd> + <kbd>S</kbd> — Apply current configuration.
+  * <kbd>Esc</kbd> — Halt active memory benchmark.
 
 ---
 
