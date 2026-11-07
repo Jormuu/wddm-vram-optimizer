@@ -9,10 +9,10 @@ if %errorlevel% neq 0 (
 
 cd /d "%~dp0"
 if not exist "VRAMOptimizer.exe" (
-    echo VRAMOptimizer.exe not found. Building it from Program.cs...
+    echo VRAMOptimizer.exe not found. Compiling from C# source...
     call build.cmd
     if not exist "VRAMOptimizer.exe" (
-        echo Build failed. See the errors above.
+        echo Build failed. See the compiler errors above.
         pause
         exit /b 1
     )

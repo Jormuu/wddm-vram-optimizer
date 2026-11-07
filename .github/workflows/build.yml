@@ -1,0 +1,43 @@
+name: Build & Test
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Compile VRAMOptimizer.exe
+        shell: cmd
+        run: call build.cmd
+
+      - name: Run Unit Test Suite
+        shell: cmd
+        run: call test.cmd
+
+      - name: Verify PE Metadata & Generate SHA-256
+        shell: pwsh
+        run: |
+          $vi = (Get-Item .\VRAMOptimizer.exe).VersionInfo
+          Write-Host "Product: $($vi.ProductName) | FileVersion: $($vi.FileVersion)"
+          if ($vi.FileVersion -ne "1.2.0.0") { throw "Unexpected FileVersion: $($vi.FileVersion)" }
+          $hash = (Get-FileHash .\VRAMOptimizer.exe -Algorithm SHA256).Hash.ToLower()
+          "$hash  VRAMOptimizer.exe" | Tee-Object -FilePath .\VRAMOptimizer.exe.sha256
+
+      - name: Upload Compiled Executable Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: VRAMOptimizer-x64
+          path: |
+            VRAMOptimizer.exe
+            VRAMOptimizer.exe.sha256

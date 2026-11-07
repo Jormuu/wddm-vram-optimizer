@@ -1,4 +1,8 @@
-# Build outputs and temporary files
+# Build outputs and runtime backups
+VRAMOptimizer.exe
+TestRunner.exe
+Backups/
+*.reg
 *.tmp
 *.log
 *.pdb
