@@ -29,6 +29,22 @@ build.cmd
 
 ---
 
+## 🖥️ Tested Environment
+
+The optimizer and two-phase memory allocator have been extensively tested and verified on the following hardware and software configuration:
+
+| Component | Specification |
+| :--- | :--- |
+| **System Model** | ASUS TUF Gaming A15 (`FA507NU`) |
+| **Operating System** | Windows 11 Pro 64-bit (Version 26H2, OS Build `26300.9711`) |
+| **Processor (CPU)** | AMD Ryzen™ 7 7735HS (8 Cores, 16 Threads, up to 4.75 GHz) |
+| **System Memory (RAM)** | 32 GB DDR5 (31.2 GB usable) |
+| **Discrete GPU (dGPU)** | NVIDIA® GeForce RTX™ 4050 Laptop GPU (6 GB GDDR6) — Driver `32.0.16.2114` (v562.11) |
+| **Integrated GPU (iGPU)** | AMD Radeon™ 680M Graphics (512 MB reserved / dynamic shared) — Driver `32.0.21045.16010` |
+| **WDDM Version** | WDDM 3.1 / 3.2 |
+
+---
+
 ## Key Highlights
 
 ### 1. Dynamic Fine-Grained Sliders (GPU VRAM Tailored)
