@@ -28,26 +28,11 @@ build.cmd
 `Launch_VRAM_Optimizer.bat` also compiles the `.exe` automatically if it is missing.
 
 ---
-
-## 🖥️ Tested Environment
-
-The optimizer and two-phase memory allocator have been extensively tested and verified on the following hardware and software configuration:
-
-| Component | Specification |
-| :--- | :--- |
-| **System Model** | ASUS TUF Gaming A15 (`FA507NU`) |
-| **Operating System** | Windows 11 Pro 64-bit (Version 26H2, OS Build `26300.9711`) |
-| **Processor (CPU)** | AMD Ryzen™ 7 7735HS (8 Cores, 16 Threads, up to 4.75 GHz) |
-| **System Memory (RAM)** | 32 GB DDR5 (31.2 GB usable) |
-| **Discrete GPU (dGPU)** | NVIDIA® GeForce RTX™ 4050 Laptop GPU (6 GB GDDR6) — Driver `32.0.16.2114` (v562.11) |
-| **Integrated GPU (iGPU)** | AMD Radeon™ 680M Graphics (512 MB reserved / dynamic shared) — Driver `32.0.21045.16010` |
-| **WDDM Version** | WDDM 3.1 / 3.2 |
-
+**Tested on:** Windows 11 Pro (Build 26300) | ASUS TUF Gaming A15 | Ryzen 7 7735HS | RTX 4050 Laptop GPU | 32 GB RAM
 ---
 
 ## Key Highlights
 
-### 1. Dynamic Fine-Grained Sliders (GPU VRAM Tailored)
 * **Dynamic Bounds:** Sliders automatically scale their range and stock ceilings based on your detected GPU VRAM (`vramMb`) and physical system RAM (`totalRamGb`).
 * **Real-time Live Badges:** Dragging sliders dynamically calculates and displays:
   * **Fragmentation Buffer Slider:** Shows current reserve and live unlocked VRAM savings (`+384 MiB Unlocked`).
