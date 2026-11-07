@@ -9,6 +9,9 @@ A standalone, zero-dependency 64-bit Windows utility to configure native **WDDM 
 
 100% vendor-neutral (**NVIDIA GeForce**, **AMD Radeon**, **Intel Arc / Iris**) — preserves Secure Boot, kernel anti-cheat, and laptop S0 Modern Standby. See **[`docs/WDDM_Internals.md`](docs/WDDM_Internals.md)** for the full `dxgmms2.sys` disassembly and budget formulas.
 
+> [!WARNING]
+> **Disclaimer:** This software is **fully AI-coded** and modifies undocumented Windows graphics memory manager (`dxgmms2.sys`) registry values. It is provided **"as is" without warranty of any kind — use it at your own risk.**
+
 ---
 
 ## 📥 Download Executable
